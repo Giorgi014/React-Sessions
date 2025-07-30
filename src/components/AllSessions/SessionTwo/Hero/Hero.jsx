@@ -1,4 +1,4 @@
-import Button from "../Button/Button";
+import {Button} from "../SessionTwoRoute.jsx";
 import HeroStyles from "./Hero.module.css";
 
 const Hero = () => {

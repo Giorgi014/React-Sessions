@@ -1,27 +1,28 @@
-import React from "react";
+import { Cart } from "../SessionTwoRoute";
+import FeatureCss from "./Feature.module.css";
 
 const Feature = () => {
   return (
-    <section className="features">
+    <section className={FeatureCss.features}>
       <h2>Why Choose Us?</h2>
-      <div className="feature">
+      <Cart className={FeatureCss.feature}>
         <h3>Community Driven</h3>
         <p>
           Get support, share tips, and build together with thousands of
           developers.
         </p>
-      </div>
-      <div className="feature">
+      </Cart>
+      <Cart className={FeatureCss.feature}>
         <h3>Learning Resources</h3>
         <p>
           Access curated tutorials, challenges, and projects to boost your
           skills.
         </p>
-      </div>
-      <div className="feature">
+      </Cart>
+      <Cart className={FeatureCss.feature}>
         <h3>Job Board</h3>
         <p>Explore developer jobs and freelance gigs tailored to your stack.</p>
-      </div>
+      </Cart>
     </section>
   );
 };
