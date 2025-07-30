@@ -1,1 +1,28 @@
-// clear
+:root {
+  --white: #ffffff;
+  --light_gray: #ffffff53;
+  --violet: #df1cff;
+  --violet_red: #ea0070;
+  --aqua: #1ee0e1;
+  --purple: #100943;
+  --light_purple: #1a124f;
+  --violet_pink: #e50aa7;
+  --transparent_violet: #ff17bd42;
+}
+@mixin displayCenter($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  @include displayCenter(center, start);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}

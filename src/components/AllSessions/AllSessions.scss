@@ -1,1 +1,45 @@
-// clear
+@mixin displayCenter($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.all_sessions_container {
+  width: 100vw;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  .head {
+    margin: 50px auto;
+    font-size: 50px;
+  }
+  .session_button {
+    @include displayCenter(center, center);
+    position: relative;
+    width: 150px;
+    padding: 10px;
+    background: linear-gradient(145deg, var(--violet), var(--violet_red));
+    transition: color 0.3s ease-in-out;
+    overflow: hidden;
+    isolation: isolate;
+    border: none;
+    border-radius: 10px;
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    &::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      border-radius: 8px;
+      background: linear-gradient(145deg, var(--aqua), rgb(0, 53, 128));
+      transition: width 0.5s ease;
+    }
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}
