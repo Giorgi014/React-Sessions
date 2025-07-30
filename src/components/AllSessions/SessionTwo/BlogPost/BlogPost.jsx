@@ -1,11 +1,12 @@
-import React from "react";
+import { Cart } from "../SessionTwoRoute";
+import BlogPostCss from "./BlogPost.module.css";
 
 const BlogPost = () => {
   return (
-    <section className="blog">
+    <section className={BlogPostCss.blog}>
       <h2>Latest Articles</h2>
 
-      <article className="post">
+      <Cart className={BlogPostCss.post}>
         <h3>Mastering React Components</h3>
         <p>
           Components are the heart of React apps. Learn how to structure, style,
@@ -14,9 +15,9 @@ const BlogPost = () => {
         <p>
           <strong>Author:</strong> Sarah Dev
         </p>
-      </article>
+      </Cart>
 
-      <article className="post">
+      <Cart className={BlogPostCss.post}>
         <h3>Using Props Like a Pro</h3>
         <p>
           Make your React components reusable and dynamic with props and
@@ -25,9 +26,9 @@ const BlogPost = () => {
         <p>
           <strong>Author:</strong> John Code
         </p>
-      </article>
+      </Cart>
 
-      <article className="post">
+      <Cart className={BlogPostCss.post}>
         <h3>Understanding State and Effects</h3>
         <p>
           Learn the fundamentals of useState and useEffect with real-life
@@ -36,7 +37,7 @@ const BlogPost = () => {
         <p>
           <strong>Author:</strong> Lina Hooks
         </p>
-      </article>
+      </Cart>
     </section>
   );
 };
