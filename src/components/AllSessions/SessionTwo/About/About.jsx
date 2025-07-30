@@ -1,8 +1,8 @@
-import React from "react";
+import AboutCss from "./About.module.css";
 
 const About = () => {
   return (
-    <aside className="sidebar">
+    <aside className={AboutCss.sidebar}>
       <h2>About DevConnect</h2>
       <img
         src="https://avatars.githubusercontent.com/u/98865593?s=280&v=4"
