@@ -10,12 +10,12 @@
   font-family: "Inter", sans-serif;
   .head {
     margin: 50px auto;
-    font-size: 50px;
+    font-size: clamp(25px, 6vw, 50px);
   }
   .session_button {
     @include displayCenter(center, center);
     position: relative;
-    width: 150px;
+    width: clamp(70px, 13vw, 150px);
     padding: 10px;
     background: linear-gradient(145deg, var(--violet), var(--violet_red));
     transition: color 0.3s ease-in-out;
@@ -24,7 +24,7 @@
     border: none;
     border-radius: 10px;
     color: var(--white);
-    font-size: 16px;
+    font-size: clamp(14px, 1.3vw, 16px);
     cursor: pointer;
     &::before {
       content: "";
@@ -40,6 +40,14 @@
     }
     &:hover::before {
       width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .all_sessions_container {
+    .session_button {
+      width: 200px;
     }
   }
 }

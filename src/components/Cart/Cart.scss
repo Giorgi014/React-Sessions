@@ -6,6 +6,8 @@
 
 .cart_container {
   @include displayCenter(space-between, center);
+  gap: 20px;
+  text-align: start;
   width: 90%;
   max-width: 1080px;
   margin: 0 auto;
@@ -17,6 +19,13 @@
   }
   .homework_text {
     font-family: "Inter", sans-serif;
-    font-size: 20px;
+    font-size: clamp(14px, 2vw, 20px);
+  }
+}
+
+@media screen and (max-width: 850px){
+  .cart_container{
+    flex-direction: column;
+    text-align: center;
   }
 }
