@@ -1,11 +1,12 @@
-import React from "react";
+import { Cart } from "../SessionTwoRoute";
+import TestimonialsCss from "./Testimonials.module.css"
 
 const Testimonials = () => {
   return (
-    <section className="testimonials">
+    <section className={TestimonialsCss.testimonials}>
       <h2>What Developers Say</h2>
 
-      <div className="testimonial">
+      <Cart className={TestimonialsCss.testimonial}>
         <img
           src="https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
           alt="User 1"
@@ -14,9 +15,9 @@ const Testimonials = () => {
           "DevConnect helped me land my first remote React job!"
         </blockquote>
         <p>- Alex Frontend</p>
-      </div>
+      </Cart>
 
-      <div className="testimonial">
+      <Cart className={TestimonialsCss.testimonial}>
         <img
           src="https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
           alt="User 2"
@@ -26,7 +27,7 @@ const Testimonials = () => {
           paid for."
         </blockquote>
         <p>- Maria JS</p>
-      </div>
+      </Cart>
     </section>
   );
 };
