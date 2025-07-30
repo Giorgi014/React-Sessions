@@ -7,7 +7,7 @@ import {
   Hero,
   Testimonials,
 } from "./SessionTwoRoute.jsx";
-import "./SessionTwo.scss";
+import "./SessionTwo.css";
 
 const SessionTwo = () => {
   return (
