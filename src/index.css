@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --white: #ffffff;
   --light_gray: #ffffff53;
@@ -9,11 +11,7 @@
   --violet_pink: #e50aa7;
   --transparent_violet: #ff17bd42;
 }
-@mixin displayCenter($justify, $align) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -21,7 +19,9 @@
 }
 
 body {
-  @include displayCenter(center, start);
+  display: flex;
+  justify-content: center;
+  align-items: start;
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
