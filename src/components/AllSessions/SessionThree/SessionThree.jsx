@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import CounterWidget from "./CounterWidget";
 
 const SessionThree = () => {
   const navigate = useNavigate();
   return (
-    <div className="w-screen bg-[#f8f9fa] text-[#333] font-serif">
+    <div className="w-screen bg-[#f8f9fa] text-[#333] font-serif p-[50px] relative">
       <div
         className="flex cursor-pointer absolute top-0 left-[20px]"
         onClick={() => navigate("/")}
@@ -12,6 +13,7 @@ const SessionThree = () => {
         <FaArrowLeftLong />
         Back
       </div>
+      <CounterWidget />
     </div>
   );
 };
