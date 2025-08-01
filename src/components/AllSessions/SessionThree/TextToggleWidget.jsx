@@ -21,12 +21,11 @@ const TextToggleWidget = () => {
         value={inputText}
         onChange={inputChange}
         placeholder="შეიყვანეთ ტექსტი"
-        className="w-[500px] p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-1 focus:ring-green-500"
+        className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-1 focus:ring-green-500"
       />
       {isVisible && (
         <p className="text-gray-700 text-lg mb-4 text-center min-h-[2rem]">
-          {" "}
-          ნაჩვენები ტექსტი:{" "}
+          ნაჩვენები ტექსტი:
           <span className="font-medium text-green-600">
             {inputText || "ტექსტი არ არის შეყვანილი"}
           </span>
