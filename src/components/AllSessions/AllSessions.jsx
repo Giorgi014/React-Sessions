@@ -5,6 +5,7 @@ import Cart from "../Cart/Cart";
 const sessions = [
   { id: 1, label: "Session Two", description: "Refactoring React Component Structure with Styled-Components and CSS Modules", path: "/session/2" },
   { id: 2, label: "Session Three", description: "Build a Mini-Dashboard with Interactive Widgets", path: "/session/3" },
+  { id: 3, label: "Session Four", description: "Contact Us Form with Validation & Preview", path: "/session/4" },
 ];
 
 const AllSessions = () => {
