@@ -1,5 +1,5 @@
 import SessionTwo from "./SessionTwo/SessionTwo";
 import SessionThree from "./SessionThree/SessionThree";
-import SessionFoure from "./SessionFoure/SessionFoure"
+import SessionFive from "./SessionFive/SessionFive"
 
-export { SessionTwo, SessionThree, SessionFoure };
+export { SessionTwo, SessionThree, SessionFive };
