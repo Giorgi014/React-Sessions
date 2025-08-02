@@ -2,8 +2,8 @@ import { Input } from "./SessionFiveRoute.jsx";
 
 const ContactForm = () => {
   return (
-    <div>
-      <form className="bg-[#5C5C62] rounded-md p-5">
+      <form className="bg-[#5C5C62] rounded-md p-5 space-y-6">
+        <p className="text-2xl font-semibold">Send us a message</p>
       <label
         htmlFor="full name"
         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -50,9 +50,9 @@ const ContactForm = () => {
         id="message"
         name="message"
         placeholder="Enter your message"
+        className="w-full px-4 py-3 form-input resize-none"
       ></textarea>
     </form>
-    </div>
   );
 };
 
