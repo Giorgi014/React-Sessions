@@ -2,8 +2,8 @@ import { Input } from "./SessionFiveRoute.jsx";
 
 const ContactForm = () => {
   return (
-      <form className="bg-[#5C5C62] rounded-md p-5 space-y-6 border bg-card text-card-foreground shadow-sm">
-        <p className="text-2xl font-semibold">Send us a message</p>
+    <form className="bg-[#5C5C62] rounded-md p-5 space-y-6 border bg-card text-card-foreground shadow-sm w-xl mx-20">
+      <p className="text-2xl font-semibold">Send us a message</p>
       <label
         htmlFor="full name"
         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
