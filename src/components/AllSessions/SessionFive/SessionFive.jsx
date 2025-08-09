@@ -6,7 +6,7 @@ const SessionFive = () => {
     <div className="w-screen p-4 md:p-8 bg-[#15151A]">
       <div className="flex justify-between items-center">
         <div className="max-w-7xl mb-8 mx-20">
-          <h1 class="font-bold bg-gradient-to-r from-indigo-950 to-purple-300 bg-clip-text text-transparent text-4xl md:text-6xl">
+          <h1 className="font-bold bg-gradient-to-r from-indigo-950 to-purple-300 bg-clip-text text-transparent text-4xl md:text-6xl">
             Contact Us
           </h1>
           <p className="text-muted-foreground mt-2 text-lg text-slate-500">
