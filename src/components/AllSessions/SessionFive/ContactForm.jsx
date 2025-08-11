@@ -1,104 +1,138 @@
-import z, { email } from "zod";
-import { Input } from "./SessionFiveRoute.jsx";
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import contactFormSchema from "./contactFormSchema";
+
+import {
+  ContactFormHeader,
+  ContactFormFields,
+  FormButtons,
+  LivePreview,
+  ValidationStatus,
+  SubmittedData,
+  SuccessToast,
+} from "./SessionFiveRoute.jsx";
 
 const ContactForm = () => {
-  const validation = z.object({
-    email: z.string().email({ message: "Please enter a valid email" }),
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    setValue,
+    formState: { errors, isValid, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(contactFormSchema),
+    mode: "onChange",
+    defaultValues: {
+      fullName: "",
+      email: "",
+      subject: "",
+      message: "",
+      contactMethod: "email",
+      agreeTerms: false,
+    },
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [submittedData, setSubmittedData] = useState(null);
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const formValues = watch();
+
+  useEffect(() => {
+    const savedData = localStorage.getItem("contactFormData");
+    if (savedData) {
+      try {
+        const parsedData = JSON.parse(savedData);
+        Object.entries(parsedData).forEach(([key, value]) => {
+          setValue(key, value);
+        });
+      } catch (error) {
+        console.error("Error loading saved form data:", error);
+      }
+    }
+    const savedTheme = localStorage.getItem("darkMode");
+    if (savedTheme) {
+      setIsDarkMode(JSON.parse(savedTheme));
+    }
+  }, [setValue]);
+
+  useEffect(() => {
+    localStorage.setItem("contactFormData", JSON.stringify(formValues));
+  }, [formValues]);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
+
+  const onSubmit = async (data) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const submissionData = {
+      ...data,
+      submittedAt: new Date().toLocaleString(),
+    };
+    setSubmittedData(submissionData);
+    setShowSuccessToast(true);
+    setTimeout(() => setShowSuccessToast(false), 3000);
   };
 
+  const handleReset = () => {
+    reset();
+    setSubmittedData(null);
+    setShowSuccessToast(false);
+    localStorage.removeItem("contactFormData");
+  };
+
+  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
+
+  const themeClasses = isDarkMode
+    ? "bg-gray-900 text-white min-h-screen"
+    : "bg-gray-50 text-gray-900 min-h-screen";
+
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-[#5C5C62] rounded-md p-5 space-y-6 border bg-card text-card-foreground shadow-sm w-xl mx-20"
-    >
-      <p className="text-2xl font-semibold">Send us a message</p>
-      <label
-        htmlFor="full name"
-        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-      >
-        Full Name *
-      </label>
-      <Input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Enter your full name"
-      />
-      <label
-        htmlFor="email"
-        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-      >
-        Email Address *
-      </label>
-      <Input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Enter your email address"
-      />
-      <label
-        htmlFor="subject"
-        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-      >
-        Subject *
-      </label>
-      <Input
-        type="text"
-        id="subject"
-        name="subject"
-        placeholder="Enter the subject"
-      />
-      <label
-        htmlFor="message"
-        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-      >
-        Message *
-      </label>
-      <textarea
-        id="message"
-        name="message"
-        placeholder="Enter your message"
-        className="w-full px-4 py-3 form-input resize-none flex min-h-[80px] rounded-md border border-input bg-background text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-      ></textarea>
-      <p>Preferred Contact Method</p>
-      <section className="flex flex-col">
-        <div className="cursor-pointer">
-          <input type="checkbox" id="check_email" className="cursor-pointer" />
-          <label htmlFor="check_email" className="cursor-pointer ml-2">
-            Email
-          </label>
+    <div className={`${themeClasses} transition-colors duration-300`}>
+      <SuccessToast show={showSuccessToast} />
+
+      <div className="container mx-auto px-4 py-8">
+        <ContactFormHeader
+          isDarkMode={isDarkMode}
+          toggleDarkMode={toggleDarkMode}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div
+            className={`${
+              isDarkMode ? "bg-gray-800" : "bg-white"
+            } p-6 rounded-lg shadow-lg`}
+          >
+            <h2 className="text-2xl font-semibold mb-6">Send us a message</h2>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <ContactFormFields
+                register={register}
+                errors={errors}
+                formValues={formValues}
+                isDarkMode={isDarkMode}
+              />
+              <FormButtons
+                isValid={isValid}
+                isSubmitting={isSubmitting}
+                handleReset={handleReset}
+              />
+            </form>
+          </div>
+
+          <div className="space-y-6">
+            <LivePreview formValues={formValues} isDarkMode={isDarkMode} />
+            <ValidationStatus isValid={isValid} errors={errors} />
+            <SubmittedData
+              submittedData={submittedData}
+              isDarkMode={isDarkMode}
+            />
+          </div>
         </div>
-        <div className="cursor-pointer mt-2">
-          <input type="checkbox" id="check_phone" className="cursor-pointer" />
-          <label htmlFor="check_phone" className="cursor-pointer ml-2">
-            Phone
-          </label>
-        </div>
-        <div className="cursor-pointer mt-2">
-          <input
-            type="checkbox"
-            id="check_reference"
-            className="cursor-pointer"
-          />
-          <label htmlFor="check_reference" className="cursor-pointer ml-2">
-            No Reference
-          </label>
-        </div>
-        <div className="cursor-pointer mt-4">
-          <input type="checkbox" id="check_terms" className="cursor-pointer" />
-          <label htmlFor="check_terms" className="cursor-pointer ml-2">
-            I agree to the terms and conditions and privacy policy
-          </label>
-        </div>
-      </section>
-      <button className="w-full bg-gradient-to-r from-purple-500 to-fuchsia-300 cursor-pointer p-2 text-white rounded-md">
-        Send Message
-      </button>
-    </form>
+      </div>
+    </div>
   );
 };
 
