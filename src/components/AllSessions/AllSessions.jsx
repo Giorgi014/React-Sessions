@@ -6,6 +6,7 @@ const sessions = [
   { id: 1, label: "Session Two", description: "Refactoring React Component Structure with Styled-Components and CSS Modules", path: "/session/2" },
   { id: 2, label: "Session Three", description: "Build a Mini-Dashboard with Interactive Widgets", path: "/session/3" },
   { id: 3, label: "Session Five", description: "Contact Us Form with Validation & Preview", path: "/session/5" },
+  { id: 4, label: "Session Six", description: "Practical Exercise: Dynamic User Profile Fetcher", path: "/session/6" },
 ];
 
 const AllSessions = () => {
