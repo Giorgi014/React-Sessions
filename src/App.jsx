@@ -6,6 +6,7 @@ import {
   SessionFive,
   SessionSix,
   SessionSeven,
+  SessionNine,
 } from "./components/AllSessions/Route";
 import "./App.scss";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/session/5" element={<SessionFive />} />
         <Route path="/session/6" element={<SessionSix />} />
         <Route path="/session/7" element={<SessionSeven />} />
+        <Route path="/session/9" element={<SessionNine />} />
       </Routes>
     </BrowserRouter>
   );

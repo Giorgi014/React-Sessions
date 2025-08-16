@@ -3,5 +3,6 @@ import SessionThree from "./SessionThree/SessionThree";
 import SessionFive from "./SessionFive/SessionFive";
 import SessionSix from "./SessionSix/SessionSix";
 import SessionSeven from "./SessionSeven/SessionSeven";
+import SessionNine from "./SessionNine/SessionNine";
 
-export { SessionTwo, SessionThree, SessionFive, SessionSix, SessionSeven };
+export { SessionTwo, SessionThree, SessionFive, SessionSix, SessionSeven, SessionNine };

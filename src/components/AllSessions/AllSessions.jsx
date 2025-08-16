@@ -8,6 +8,7 @@ const sessions = [
   { id: 3, label: "Session Five", description: "Contact Us Form with Validation & Preview", path: "/session/5" },
   { id: 4, label: "Session Six", description: "Practical Exercise: Dynamic User Profile Fetcher", path: "/session/6" },
   { id: 5, label: "Session Seven", description: "Coding Exercise: Lifecycle Simulator", path: "/session/7" },
+  { id: 6, label: "Session Nine", description: "Advanced State Management with Redux", path: "/session/9" },
 ];
 
 const AllSessions = () => {
