@@ -1,7 +1,11 @@
+import UserProfileFetcher from "./UserProfileFetcher";
+
 const SessionSix = () => {
   return (
-    <div>SessionSix</div>
-  )
-}
+    <div>
+      <UserProfileFetcher />
+    </div>
+  );
+};
 
-export default SessionSix
+export default SessionSix;
