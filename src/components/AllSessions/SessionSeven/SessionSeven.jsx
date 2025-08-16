@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import UserProfileFetcher from "./UserProfileFetcher";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
-const SessionSix = () => {
+const SessionSeven = () => {
   const navigate = useNavigate();
+
   return (
     <div>
       <div
@@ -13,9 +13,9 @@ const SessionSix = () => {
         <FaArrowLeftLong />
         Back
       </div>
-      <UserProfileFetcher />
+      SessionSeven
     </div>
   );
 };
 
-export default SessionSix;
+export default SessionSeven;

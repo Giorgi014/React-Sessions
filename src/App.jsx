@@ -1,6 +1,12 @@
 import AllSessions from "./components/AllSessions/AllSessions";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { SessionTwo, SessionThree, SessionFive, SessionSix } from "./components/AllSessions/Route";
+import {
+  SessionTwo,
+  SessionThree,
+  SessionFive,
+  SessionSix,
+  SessionSeven,
+} from "./components/AllSessions/Route";
 import "./App.scss";
 
 function App() {
@@ -12,6 +18,7 @@ function App() {
         <Route path="/session/3" element={<SessionThree />} />
         <Route path="/session/5" element={<SessionFive />} />
         <Route path="/session/6" element={<SessionSix />} />
+        <Route path="/session/7" element={<SessionSeven />} />
       </Routes>
     </BrowserRouter>
   );
